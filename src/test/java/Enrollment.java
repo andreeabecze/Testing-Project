@@ -34,17 +34,17 @@ public class Enrollment extends PageObject {
     public String getEnrollmentHeader () {return this.startEnrollementHeader.getText();
     }
 
-    public void ClickOnFirstNameField () {this.FirstNameField.sendKeys("Andreea");}
+    public void populateFirstNameField () {this.FirstNameField.sendKeys("Andreea");}
 
-    public void ClickOnLastNameField () {this.LastNameField.sendKeys("Becze");}
+    public void populateLastNameField () {this.LastNameField.sendKeys("Becze");}
 
-    public void ClickOnUsernameField () {this.UsernameField.sendKeys("VIVIVI");}
+    public void populateUsernameField () {this.UsernameField.sendKeys("VIVIVI");}
 
-    public void ClickOnPasswordField () {this.PasswordField.sendKeys("123456");}
+    public void populatePasswordField () {this.PasswordField.sendKeys("123456");}
 
-    public void ClickOnConfirmPasswordField () {this.ConfirmPassword.sendKeys("123456");}
+    public void populateConfirmPasswordField () {this.ConfirmPassword.sendKeys("123456");}
 
-    public void ClickNextButton () {
+    public void clickNextButton () {
         Utils.scrollToElement(driver, NextButton);
         this.NextButton.click();
     }

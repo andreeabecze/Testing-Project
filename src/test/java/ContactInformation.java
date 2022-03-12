@@ -32,13 +32,16 @@ public class ContactInformation extends PageObject {
 
     public String GetContactInfo () { return this.TextContactInfo.getText();}
 
-    public void ClickOnEmailField () {this.EmailField.sendKeys("andreeab@yahoo.com");}
 
-    public void ClickOnCountryField () {this.CountryField.sendKeys("Romania");}
+    public void populateEmailField () {this.EmailField.sendKeys("andreeab@yahoo.com");}
 
-    public void ClickOnCityField () {this.CityField.sendKeys("Brasov");}
+    public void populatePhoneField () {this.PhoneField.sendKeys("07XXXXXXXX");}
 
-    public void ClickPostCodeField () {this.PostCodeField.sendKeys("500413");}
+    public void populateCountryField () {this.CountryField.sendKeys("Romania");}
+
+    public void populateCityField () {this.CityField.sendKeys("Brasov");}
+
+    public void populatePostCodeField () {this.PostCodeField.sendKeys("500413");}
 
     public void ClickNextButtonContactInfo () {this.NextButtonContactInfo.click();}
 

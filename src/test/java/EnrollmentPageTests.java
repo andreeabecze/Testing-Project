@@ -27,35 +27,69 @@ public class EnrollmentPageTests {
 
 
     @Test(testName = "Verify functionality for Contact Information with one empty field")
-    public void VerifyContactInformation () {
+    public void VerifyContactInformationWithEmptyField () {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
         webForm.ClickOnEnrollementButton();
 
-        //TODO: Fix method naming; ClickOn -> Populate/Write
+
         Enrollment pageInfo = new Enrollment(driver);
         pageInfo.getEnrollmentHeader();
-        pageInfo.ClickOnFirstNameField();
-        pageInfo.ClickOnLastNameField();
-        pageInfo.ClickOnUsernameField();
-        pageInfo.ClickOnPasswordField();
-        pageInfo.ClickOnConfirmPasswordField();
-        pageInfo.ClickNextButton();
+        pageInfo.populateFirstNameField();
+        pageInfo.populateLastNameField();
+        pageInfo.populateUsernameField();
+        pageInfo.populatePasswordField();
+        pageInfo.populateConfirmPasswordField();
+        pageInfo.clickNextButton();
         Utils.waitForElementToLoad(1);
 
         ContactInformation ContactInfo = new ContactInformation(driver);
         Assert.assertEquals(ContactInfo.GetContactInfo(), Constants.CONTACT_INFO_HEADER);
 
-        ContactInfo.ClickOnEmailField();
-
-        ContactInfo.ClickOnCountryField();
-        ContactInfo.ClickOnCityField();
-        ContactInfo.ClickPostCodeField();
+        ContactInfo.populateEmailField();
+        ContactInfo.populateCountryField();
+        ContactInfo.populateCityField();
+        ContactInfo.populatePostCodeField();
         ContactInfo.ClickNextButtonContactInfo();
-        Utils.waitForElementToLoad(2);
-        Assert.assertEquals(ContactInfo.GetContactInfo(), Constants.COURSE_HEADER);
 
+        Utils.waitForElementToLoad(2);
+        Assert.assertEquals(ContactInfo.GetContactInfo(), Constants.CONTACT_INFO_HEADER);
     }
+
+
+
+    @Test(testName = "Verify functionality for Contact Information with no empty field")
+    public void VerifyContactInformationNoEmptyField () {
+        driver.get(Utils.BASE_URL);
+        Homepage webForm = new Homepage(driver);
+        webForm.ClickOnEnrollementButton();
+
+
+        Enrollment pageInfo = new Enrollment(driver);
+        pageInfo.getEnrollmentHeader();
+        pageInfo.populateFirstNameField();
+        pageInfo.populateLastNameField();
+        pageInfo.populateUsernameField();
+        pageInfo.populatePasswordField();
+        pageInfo.populateConfirmPasswordField();
+        pageInfo.clickNextButton();
+        Utils.waitForElementToLoad(1);
+
+        ContactInformation ContactInfo = new ContactInformation(driver);
+        Assert.assertEquals(ContactInfo.GetContactInfo(), Constants.CONTACT_INFO_HEADER);
+
+        ContactInfo.populateEmailField();
+        ContactInfo.populatePhoneField();
+        ContactInfo.populateCountryField();
+        ContactInfo.populateCityField();
+        ContactInfo.populatePostCodeField();
+        ContactInfo.ClickNextButtonContactInfo();
+
+        Utils.waitForElementToLoad(1);
+        CourseOption courseOption = new CourseOption(driver);
+        Assert.assertEquals(courseOption.CourseHeader(), Constants.COURSE_HEADER);
+    }
+
 
 
     @AfterSuite

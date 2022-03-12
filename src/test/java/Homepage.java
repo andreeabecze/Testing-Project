@@ -5,7 +5,7 @@ import org.testng.Assert;
 
 public class Homepage extends PageObject {
     @FindBy(xpath = "/html/body/section[1]/div/div/div/a")
-    private WebElement startEnrollementButton;
+    private WebElement startEnrollmentButton;
 
     @FindBy(xpath = "/html/body/section[3]/div/div/div[1]/div/div/a")
     private WebElement startReadMoreVirtualButton;
@@ -58,8 +58,8 @@ public class Homepage extends PageObject {
     public Homepage(WebDriver driver) { super(driver);}
 
 
-    public void ClickOnEnrollementButton() {
-        this.startEnrollementButton.click();
+    public void ClickOnEnrollmentButton() {
+        this.startEnrollmentButton.click();
     }
 
     public void ClickOnReadMoreVirtualButton () {
